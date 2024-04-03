@@ -8,7 +8,7 @@ import {
   Roboto_700Bold,
   useFonts,
 } from "@expo-google-fonts/roboto";
-import { Loading } from "../components/Loading";
+import { Loading } from "@/components/Loading";
 
 export default function Layout() {
   const [fonstLoaded] = useFonts({

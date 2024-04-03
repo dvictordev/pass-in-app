@@ -1,4 +1,6 @@
-import { Text, View } from "react-native";
+import { Image, Text, TextInput, View } from "react-native";
+
+import { Input } from "@/components/Input";
 
 /* 
 sempre que for uma nova pagina exportar função como default
@@ -6,7 +8,16 @@ sempre que for uma nova pagina exportar função como default
 export default function Home() {
   return (
     <View className="flex-1 items-center justify-center bg-green-500">
-      <Text className="text-white text-2xl font-bold"> Olá mundo! </Text>
+      <Image
+        source={require("../assets/logo.png")}
+        className="h-16"
+        resizeMode="contain"
+      />
+      <View>
+        <Input>
+          <Input.Field />
+        </Input>
+      </View>
     </View>
   );
 }
