@@ -11,6 +11,16 @@ sempre que for uma nova pagina exportar função como default
 */
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
+  const [ticketCode, setTicketCode] = useState("");
+
+  function handleAccessCredential() {
+    if (!ticketCode.trim()) {
+      Alert.alert("Ingresso", "Código do ingresso é obrigatório");
+      return;
+    }
+
+    console.log(ticketCode);
+  }
   return (
     <View className="flex-1 items-center justify-center bg-green-500 p-8">
       <Image
@@ -25,10 +35,19 @@ export default function Home() {
             size={24}
             color={colors.green[200]}
           />
-          <Input.Field placeholder="Código do ingresso" />
+          <Input.Field
+            placeholder="Código do ingresso"
+            onChangeText={(value) => {
+              setTicketCode(value);
+            }}
+          />
         </Input>
 
-        <Button title="ACESSAR CREDENCIAL" isLoading={isLoading} />
+        <Button
+          title="ACESSAR CREDENCIAL"
+          isLoading={isLoading}
+          onPress={handleAccessCredential}
+        />
 
         <Link
           href="/register"
