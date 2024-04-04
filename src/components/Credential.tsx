@@ -8,13 +8,15 @@ import {
 
 import { Feather } from "@expo/vector-icons";
 import { colors } from "@/styles/colors";
+import { QRCode } from "@/components/QrcCode";
 
 type Props = {
   image?: string;
   onChangeAvatar?: () => void;
+  onExpandQrCode?: () => void;
 };
 
-export function Credential({ onChangeAvatar, image }: Props) {
+export function Credential({ onChangeAvatar, image, onExpandQrCode }: Props) {
   return (
     <View className="flex-1 self-stretch items-center">
       <Image
@@ -59,12 +61,13 @@ export function Credential({ onChangeAvatar, image }: Props) {
           victordc133@gmail.com
         </Text>
 
-        <Image
-          source={require("@/assets/ticket/qrcode.png")}
-          className="w-32 h-32"
-        />
+        <QRCode value="teste" size={120} />
 
-        <TouchableOpacity activeOpacity={0.6} className="mt-6">
+        <TouchableOpacity
+          activeOpacity={0.6}
+          className="mt-6"
+          onPress={onExpandQrCode}
+        >
           <Text className="font-body text-orange-500 text-sm">
             Ampliar QRCode
           </Text>
